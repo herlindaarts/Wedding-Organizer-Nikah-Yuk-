@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricelist - Nikah Yuk!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="tampilan.css">
+    <!-- Font Awesome untuk ikon sosial media -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-black text-white font-inter">
+    <!-- Header dan Navigasi (Konsisten dengan halaman lain) -->
+    <header class="bg-black/80 backdrop-blur-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Navigasi Desktop Kiri -->
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-8 text-sm font-medium tracking-wider">
+                    <a href="beranda.html" class="hover:text-gray-300 transition-colors duration-300">BERANDA</a>
+                    <a href="tentangkami.html" class="hover:text-gray-300 transition-colors duration-300">TENTANG KAMI</a>
+                    <div class="relative group">
+                        <a href="Untitled-4.html" class="hover:text-gray-300 transition-colors duration-300">LAYANAN</a>
+                        <div class="dropdown-content absolute left-0 mt-2 w-48 bg-black/90 rounded-md shadow-lg py-1 hidden group-hover:block">
+                            <a href="untitled-4.html#tata-rias" class="block px-4 py-2 text-sm text-white hover:bg-gray-700 rounded-md">Tata Rias</a>
+                            <a href="untitled-4.html#tata-busana" class="block px-4 py-2 text-sm text-white hover:bg-gray-700 rounded-md">Tata Busana</a>
+                            <a href="Untitled-4.html#fotografi" class="block px-4 py-2 text-sm text-white hover:bg-gray-700 rounded-md">Fotografi</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Logo Pusat -->
+                <div class="text-center text-white">
+                    <a href="beranda.html" class="text-2xl lg:text-3xl font-bold tracking-widest font-elegant">Nikah Yuk!</a>
+                    <p class="text-xs text-gray-400 tracking-[0.2em]">Merayakan Cinta Tanpa Drama</p>
+                </div>
+                <!-- Navigasi Desktop Kanan -->
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-8 text-sm font-medium tracking-wider">
+                    <a href="galeri.html" class="block hover:text-gray-300 transition-colors duration-300 py-2">GALERI</a>
+                    <a href="#" class="block hover:text-gray-300 transition-colors duration-300 py-2">PRICELIST</a>
+                    <a href="kontak.html" class="block hover:text-gray-300 transition-colors duration-300 py-2">KONTAK</a>
+                </div>
+                <!-- Tombol Menu Mobile -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <!-- Menu Mobile (Tersembunyi secara default) -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2 text-center">
+            <a href="beranda.html" class="block hover:text-gray-300 transition-colors duration-300 py-2">BERANDA</a>
+            <a href="tentangkami.html" class="block hover:text-gray-300 transition-colors duration-300 py-2">TENTANG KAMI</a>
+            <div class="relative w-full">
+                <a href="Untitled-4.html" class="block hover:text-gray-300 transition-colors duration-300 py-2">LAYANAN</a>
+                <div class="space-y-1 text-sm">
+                    <a href="untitled-4.html#tata-rias" class="block px-4 py-2 text-white hover:bg-gray-700 rounded-md">Tata Rias</a>
+                    <a href="untitled-4.html#tata-busana" class="block px-4 py-2 text-sm text-white hover:bg-gray-700 rounded-md">Tata Busana</a>
+                    <a href="Untitled-4.html#fotografi" class="block px-4 py-2 text-sm text-white hover:bg-gray-700 rounded-md">Fotografi</a>
+                </div>
+            </div>
+            <a href="galeri.html" class="block hover:text-gray-300 transition-colors duration-300 py-2">GALERI</a>
+            <a href="#" class="block hover:text-gray-300 transition-colors duration-300 py-2">PRICELIST</a>
+            <a href="kontak.html" class="block hover:text-gray-300 transition-colors duration-300 py-2">KONTAK</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section untuk Halaman Pricelist -->
+        <section class="hero-pricelist-section relative h-[60vh] min-h-[400px] flex items-center justify-center px-6">
+            <!-- Gambar latar belakang yang bisa diubah -->
+            <img src="https://images.unsplash.com/photo-1544652431-d872b2253018?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                 alt="Background Pricelist" 
+                 class="absolute inset-0 w-full h-full object-cover brightness-75"
+                 onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/333/FFF?text=Gambar+Latar+Belakang+Pricelist';">
+            <h1 class="relative z-10 font-elegant text-6xl md:text-7xl lg:text-8xl text-white uppercase text-shadow-lg">DAFTAR HARGA</h1>
+        </section>
+
+        <!-- Bagian Paket Harga -->
+        <section class="py-16 px-6 bg-gray-900">
+            <div class="container mx-auto">
+                <h2 class="font-elegant text-5xl text-center text-white mb-12">Pilih Paket Impian Anda</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Paket Basic -->
+                    <div class="price-card bg-gray-800 p-8 rounded-lg shadow-xl flex flex-col items-center text-center transform hover:scale-105 transition-transform duration-300">
+                        <h3 class="font-elegant text-4xl text-white mb-4">Paket Basic</h3>
+                        <p class="text-gray-300 text-lg mb-6">Solusi sederhana untuk pernikahan intim.</p>
+                        <p class="text-5xl font-bold text-white mb-6">Rp 15.000.000</p>
+                        <ul class="text-gray-300 text-left space-y-2 mb-8">
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Tata Rias Pengantin</li>
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Gaun Pengantin (Sewa)</li>
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Fotografi (3 jam)</li>
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Konsultasi Awal</li>
+                        </ul>
+                        <button class="book-now-btn bg-e5d5c1 text-black py-3 px-8 rounded-full font-semibold hover:bg-d4c4b0 transition-colors duration-300" 
+                                data-package-name="Paket Basic" data-package-price="15000000">
+                            Pesan Sekarang
+                        </button>
+                    </div>
+
+                    <!-- Paket Intimate -->
+                    <div class="price-card bg-gray-800 p-8 rounded-lg shadow-xl flex flex-col items-center text-center transform hover:scale-105 transition-transform duration-300">
+                        <h3 class="font-elegant text-4xl text-white mb-4">Paket Intimate</h3>
+                        <p class="text-gray-300 text-lg mb-6">Pernikahan kecil dan personal.</p>
+                        <p class="text-5xl font-bold text-white mb-6">Rp 22.500.000</p>
+                        <ul class="text-gray-300 text-left space-y-2 mb-8">
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Tata Rias & Busana (1x Ganti)</li>
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Fotografi & Videografi (Setengah Hari)</li>
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Dekorasi Minimalis</li>
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Sound System Sederhana</li>
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Konsultasi Lanjutan</li>
+                        </ul>
+                        <button class="book-now-btn bg-e5d5c1 text-black py-3 px-8 rounded-full font-semibold hover:bg-d4c4b0 transition-colors duration-300" 
+                                data-package-name="Paket Intimate" data-package-price="22500000">
+                            Pesan Sekarang
+                        </button>
+                    </div>
+
+                    <!-- Paket Premium -->
+                    <div class="price-card bg-gray-800 p-8 rounded-lg shadow-xl flex flex-col items-center text-center transform hover:scale-105 transition-transform duration-300 border-2 border-e5d5c1">
+                        <h3 class="font-elegant text-4xl text-white mb-4">Paket Premium</h3>
+                        <p class="text-gray-300 text-lg mb-6">Pengalaman pernikahan lengkap dan mewah.</p>
+                        <p class="text-5xl font-bold text-white mb-6">Rp 35.000.000</p>
+                        <ul class="text-gray-300 text-left space-y-2 mb-8">
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Tata Rias & Busana Lengkap</li>
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Fotografi & Videografi (Full Day)</li>
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Dekorasi Standar</li>
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i>MC & Hiburan</li>
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Wedding Planner</li>
+                        </ul>
+                        <button class="book-now-btn bg-e5d5c1 text-black py-3 px-8 rounded-full font-semibold hover:bg-d4c4b0 transition-colors duration-300" 
+                                data-package-name="Paket Premium" data-package-price="35000000">
+                            Pesan Sekarang
+                        </button>
+                    </div>
+
+                    <!-- Paket Tradisional -->
+                    <div class="price-card bg-gray-800 p-8 rounded-lg shadow-xl flex flex-col items-center text-center transform hover:scale-105 transition-transform duration-300">
+                        <h3 class="font-elegant text-4xl text-white mb-4">Paket Tradisional</h3>
+                        <p class="text-gray-300 text-lg mb-6">Sentuhan budaya dalam perayaan cinta Anda.</p>
+                        <p class="text-5xl font-bold text-white mb-6">Rp 45.000.000</p>
+                        <ul class="text-gray-300 text-left space-y-2 mb-8">
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Tata Rias & Busana Adat</li>
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Upacara Adat Lengkap</li>
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Fotografi & Videografi (Full Day)</li>
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Dekorasi Adat</li>
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Musik Tradisional</li>
+                        </ul>
+                        <button class="book-now-btn bg-e5d5c1 text-black py-3 px-8 rounded-full font-semibold hover:bg-d4c4b0 transition-colors duration-300" 
+                                data-package-name="Paket Tradisional" data-package-price="45000000">
+                            Pesan Sekarang
+                        </button>
+                    </div>
+
+                    <!-- Paket Eksklusif -->
+                    <div class="price-card bg-gray-800 p-8 rounded-lg shadow-xl flex flex-col items-center text-center transform hover:scale-105 transition-transform duration-300">
+                        <h3 class="font-elegant text-4xl text-white mb-4">Paket Eksklusif</h3>
+                        <p class="text-gray-300 text-lg mb-6">Pernikahan impian tanpa batas.</p>
+                        <p class="text-5xl font-bold text-white mb-6">Rp 75.000.000</p>
+                        <ul class="text-gray-300 text-left space-y-2 mb-8">
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Semua Fitur Paket Premium</li>
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Dekorasi Kustom Mewah</li>
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Pre-Wedding Photo & Video Shoot</li>
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Akomodasi Pengantin (2 Malam)</li>
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Souvenir Eksklusif</li>
+                        </ul>
+                        <button class="book-now-btn bg-e5d5c1 text-black py-3 px-8 rounded-full font-semibold hover:bg-d4c4b0 transition-colors duration-300" 
+                                data-package-name="Paket Eksklusif" data-package-price="75000000">
+                            Pesan Sekarang
+                        </button>
+                    </div>
+
+                    <!-- Paket Destinasi -->
+                    <div class="price-card bg-gray-800 p-8 rounded-lg shadow-xl flex flex-col items-center text-center transform hover:scale-105 transition-transform duration-300">
+                        <h3 class="font-elegant text-4xl text-white mb-4">Paket Destinasi</h3>
+                        <p class="text-gray-300 text-lg mb-6">Petualangan cinta di lokasi impian.</p>
+                        <p class="text-5xl font-bold text-white mb-6">Rp 120.000.000</p>
+                        <ul class="text-gray-300 text-left space-y-2 mb-8">
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Semua Fitur Paket Eksklusif</li>
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Perencanaan Logistik Destinasi</li>
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Tim Pendukung di Lokasi</li>
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Transportasi & Akomodasi (Pengantin)</li>
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Izin Lokasi (Jika Diperlukan)</li>
+                        </ul>
+                        <button class="book-now-btn bg-e5d5c1 text-black py-3 px-8 rounded-full font-semibold hover:bg-d4c4b0 transition-colors duration-300" 
+                                data-package-name="Paket Destinasi" data-package-price="120000000">
+                            Pesan Sekarang
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Form Pemesanan -->
+    <div id="booking-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden p-4 overflow-y-auto">
+        <div class="bg-gray-800 p-6 rounded-lg shadow-xl max-w-xl w-full relative">
+            <button id="close-booking-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">&times;</button>
+            <h2 class="font-elegant text-3xl text-center text-white mb-6">Formulir Pemesanan</h2>
+            <div id="loading-message" class="text-center text-gray-400 mb-4" style="display: none;">
+                Memuat sistem... Mohon tunggu sebentar.
+            </div>
+            <form id="booking-form" class="space-y-4">
+                <div>
+                    <label for="bookingName" class="block text-gray-300 text-sm font-bold mb-1">Nama Lengkap:</label>
+                    <input type="text" id="bookingName" name="bookingName" class="w-full p-2 rounded-md bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-gray-500 text-sm" required>
+                </div>
+                <div>
+                    <label for="bookingEmail" class="block text-gray-300 text-sm font-bold mb-1">Email:</label>
+                    <input type="email" id="bookingEmail" name="bookingEmail" class="w-full p-2 rounded-md bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-gray-500 text-sm" required>
+                </div>
+                <div>
+                    <label for="bookingPhone" class="block text-gray-300 text-sm font-bold mb-1">Nomor Telepon:</label>
+                    <input type="tel" id="bookingPhone" name="bookingPhone" class="w-full p-2 rounded-md bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-gray-500 text-sm" required>
+                </div>
+                <div>
+                    <label for="bookingAddress" class="block text-gray-300 text-sm font-bold mb-1">Alamat Lengkap:</label>
+                    <textarea id="bookingAddress" name="bookingAddress" rows="2" class="w-full p-2 rounded-md bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-gray-500 text-sm" required></textarea>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="bookingCity" class="block text-gray-300 text-sm font-bold mb-1">Kota:</label>
+                        <input type="text" id="bookingCity" name="bookingCity" class="w-full p-2 rounded-md bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-gray-500 text-sm" required>
+                    </div>
+                    <div>
+                        <label for="bookingPostalCode" class="block text-gray-300 text-sm font-bold mb-1">Kode Pos:</label>
+                        <input type="text" id="bookingPostalCode" name="bookingPostalCode" class="w-full p-2 rounded-md bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-gray-500 text-sm" required>
+                    </div>
+                </div>
+                <div>
+                    <label for="bookingPackage" class="block text-gray-300 text-sm font-bold mb-1">Paket Dipilih:</label>
+                    <input type="text" id="bookingPackage" name="bookingPackage" class="w-full p-2 rounded-md bg-gray-700 border border-gray-600 text-white text-sm" readonly>
+                    <input type="hidden" id="bookingPrice" name="bookingPrice">
+                </div>
+                <div>
+                    <label for="bookingDate" class="block text-gray-300 text-sm font-bold mb-1">Tanggal Pernikahan:</label>
+                    <input type="date" id="bookingDate" name="bookingDate" class="w-full p-2 rounded-md bg-gray-700 border border-gray-600 text-white focus:outline-none focus:border-gray-500 text-sm" required>
+                </div>
+                <div>
+                    <label for="eventDetails" class="block text-gray-300 text-sm font-bold mb-1">Detail Acara Tambahan (opsional):</label>
+                    <textarea id="eventDetails" name="eventDetails" rows="3" class="w-full p-2 rounded-md bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-gray-500 text-sm"></textarea>
+                </div>
+                
+                <div class="text-right text-white text-lg font-bold">
+                    Total Harga: <span id="total-price-display">Rp 0</span>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" id="submit-booking-btn" class="bg-e5d5c1 text-black py-2 px-6 rounded-full font-semibold hover:bg-d4c4b0 transition-colors duration-300 text-sm" disabled>
+                        Memuat...
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Nota/Invoice -->
+    <div id="invoice-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden p-4 overflow-y-auto">
+        <div class="bg-white p-6 rounded-lg shadow-xl max-w-xl w-full relative text-gray-900">
+            <button id="close-invoice-modal" class="absolute top-4 right-4 text-gray-600 hover:text-gray-900 text-2xl">&times;</button>
+            <h2 class="font-elegant text-3xl text-center mb-6">Nota Pemesanan</h2>
+            <div id="invoice-content" class="space-y-3 text-sm">
+                <p><strong>Kode Booking:</strong> <span id="invoice-booking-code"></span></p>
+                <p><strong>Nama Pelanggan:</strong> <span id="invoice-name"></span></p>
+                <p><strong>Email:</strong> <span id="invoice-email"></span></p>
+                <p><strong>Nomor Telepon:</strong> <span id="invoice-phone"></span></p>
+                <p><strong>Alamat:</strong> <span id="invoice-address"></span></p>
+                <p><strong>Kota:</strong> <span id="invoice-city"></span></p>
+                <p><strong>Kode Pos:</strong> <span id="invoice-postal-code"></span></p>
+                <p><strong>Paket Dipilih:</strong> <span id="invoice-package"></span></p>
+                <p><strong>Tanggal Pernikahan:</strong> <span id="invoice-date"></span></p>
+                <p><strong>Detail Acara Tambahan:</strong> <span id="invoice-event-details"></span></p>
+                <p class="text-xl font-bold mt-6">Total Harga: <span id="invoice-total-price"></span></p>
+                <p class="text-xs text-gray-600 mt-4">Terima kasih telah mempercayakan hari spesial Anda kepada Nikah Yuk!. Kami akan segera menghubungi Anda untuk konfirmasi lebih lanjut.</p>
+            </div>
+            <div class="flex justify-center space-x-4 mt-8">
+                <button id="print-invoice-btn" class="bg-gray-700 text-white py-2 px-6 rounded-lg hover:bg-gray-800 transition-colors duration-300">Cetak Nota</button>
+                <button id="save-invoice-btn" class="bg-gray-300 text-gray-800 py-2 px-6 rounded-lg hover:bg-gray-400 transition-colors duration-300">Simpan Nota</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (Sama dengan halaman beranda) -->
+    <footer class="bg-gray-200 text-gray-800 pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="border-t border-gray-400 mb-12"></div>
+            <div class="flex flex-col md:flex-row justify-between text-center md:text-left gap-10">
+                <div class="md:w-1/3 flex flex-col items-center md:items-start">
+                    <h3 class="text-2xl font-bold tracking-widest">Nikah Yuk!</h3>
+                    <p class="text-xs text-gray-600 tracking-[0.2em]">Merayakan Cinta Tanpa Drama</p>
+                    <p class="text-xs text-gray-500 mt-auto pt-8">2025 Hak Cipta Terpelihara</p>
+                </div>
+                <div class="md:w-1/3">
+                    <h4 class="font-bold mb-2">KANTOR</h4>
+                    <p class="text-sm">Jl. Alam Sutera Raya No. 16A, <br> RT.4/RW.3, Kebon Jeruk, Tebet, <br> South Jakarta City, Jakarta 12830</p>
+                </div>
+                <div class="md:w-1/3">
+                    <h4 class="font-bold mb-2">HUBUNGI KAMI</h4>
+                    <p class="text-sm">+62 21 292008889</p>
+                    <p class="text-sm">cs@nikahyuk!.com</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Modal for Confirmation / Messages -->
+    <div id="custom-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden">
+        <div class="bg-white p-8 rounded-lg shadow-xl text-center max-w-sm mx-4">
+            <p class="text-gray-800 text-lg mb-6"></p> <!-- Pesan akan dimasukkan di sini oleh JS -->
+            <div class="flex justify-center space-x-4">
+                <button id="modal-confirm-btn" class="bg-gray-700 text-white py-2 px-6 rounded-lg hover:bg-gray-800 transition-colors duration-300">Oke</button>
+                <button id="modal-cancel-btn" class="bg-gray-300 text-gray-800 py-2 px-6 rounded-lg hover:bg-gray-400 transition-colors duration-300 hidden">Batal</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        // =====================================================================================
+        // PENTING: Aplikasi ini dirancang untuk berjalan di lingkungan Canvas.
+        // Variabel konfigurasi Firebase (__app_id, __firebase_config, __initial_auth_token)
+        // disediakan secara otomatis oleh Canvas. Jika Anda menjalankan file ini secara lokal
+        // (misalnya, dari `file:///`), inisialisasi Firebase akan gagal.
+        // Harap gunakan fitur "Preview" di Canvas untuk melihat dan menguji aplikasi ini.
+        // =====================================================================================
+
+        // Firebase imports
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Global variables for Firebase (provided by Canvas environment)
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+        let app, db, auth, userId;
+        let isFirebaseReady = false; // Flag to track Firebase readiness
+
+        // Function to enable/disable form submission elements based on Firebase readiness
+        function updateFormSubmissionState() {
+            const submitButton = document.getElementById('submit-booking-btn');
+            const loadingMessage = document.getElementById('loading-message');
+
+            if (submitButton) {
+                if (isFirebaseReady && userId) {
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Kirim Pesan';
+                    submitButton.classList.remove('opacity-50', 'cursor-not-allowed');
+                } else {
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'Sistem Tidak Siap'; // Clearer feedback if Firebase fails
+                    submitButton.classList.add('opacity-50', 'cursor-not-allowed');
+                }
+            }
+            if (loadingMessage) {
+                loadingMessage.style.display = 'none'; // Always hide loading message once init attempt is done
+            }
+        }
+
+        // Initialize Firebase and authenticate
+        async function initializeFirebase() {
+            try {
+                console.log("Firebase: Starting initialization...");
+                console.log("Firebase Config:", firebaseConfig);
+                console.log("Initial Auth Token:", initialAuthToken ? "Provided" : "Not Provided");
+
+                // Explicitly check if firebaseConfig is valid
+                if (Object.keys(firebaseConfig).length === 0 || !firebaseConfig.apiKey) {
+                    console.error("Firebase: firebaseConfig is empty or invalid. Cannot initialize Firebase. Please run in Canvas environment.");
+                    showCustomModal("Kesalahan konfigurasi Firebase. Pastikan Anda menjalankan ini di lingkungan Canvas.", false);
+                    isFirebaseReady = false;
+                    updateFormSubmissionState(); // Update button state
+                    return; // Stop initialization
+                }
+
+                app = initializeApp(firebaseConfig);
+                db = getFirestore(app);
+                auth = getAuth(app);
+
+                // Wait for the initial auth state to be resolved
+                await new Promise(resolve => {
+                    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+                        console.log("Firebase: onAuthStateChanged triggered. User:", user);
+                        if (user) {
+                            userId = user.uid;
+                            console.log("Firebase: User authenticated. User ID:", userId);
+                        } else {
+                            console.log("Firebase: No user found. Attempting anonymous/custom token sign-in.");
+                            try {
+                                if (initialAuthToken) {
+                                    await signInWithCustomToken(auth, initialAuthToken);
+                                    userId = auth.currentUser?.uid;
+                                    console.log("Firebase: Signed in with custom token. User ID:", userId);
+                                } else {
+                                    await signInAnonymously(auth);
+                                    userId = auth.currentUser?.uid;
+                                    console.log("Firebase: Signed in anonymously. User ID:", userId);
+                                }
+                            } catch (authError) {
+                                console.error("Firebase: Authentication failed:", authError);
+                                userId = null;
+                                showCustomModal("Gagal melakukan autentikasi. Beberapa fitur mungkin tidak berfungsi.", false);
+                            }
+                        }
+                        isFirebaseReady = (userId !== null);
+                        console.log("Firebase: isFirebaseReady set to", isFirebaseReady, "User ID:", userId);
+                        updateFormSubmissionState(); // Update button state after auth attempt
+                        unsubscribe(); // Stop listening after initial state is handled
+                        resolve();
+                    });
+                });
+
+            } catch (error) {
+                console.error("Firebase: Error during Firebase initialization or authentication:", error);
+                showCustomModal("Terjadi kesalahan saat menginisialisasi layanan. Mohon coba lagi nanti.", false);
+                isFirebaseReady = false;
+                updateFormSubmissionState(); // Update button state in case of error
+            }
+        }
+
+        // Call initializeFirebase when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            const loadingMessage = document.getElementById('loading-message');
+            const submitButton = document.getElementById('submit-booking-btn');
+            
+            if (loadingMessage) {
+                loadingMessage.style.display = 'block'; // Show loading message initially
+            }
+            if (submitButton) {
+                submitButton.disabled = true; // Ensure button is disabled initially
+                submitButton.textContent = 'Memuat...'; // Indicate loading
+                submitButton.classList.add('opacity-50', 'cursor-not-allowed'); // Add disabled styling
+            }
+            initializeFirebase();
+        });
+
+
+        // Mengatur toggle untuk menu mobile
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', () => {
+                if (mobileMenu) mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Mendapatkan elemen modal kustom (untuk pesan umum)
+        const customModal = document.getElementById('custom-modal');
+        const modalMessageP = customModal ? customModal.querySelector('p') : null;
+        const modalConfirmBtn = document.getElementById('modal-confirm-btn');
+        const modalCancelBtn = document.getElementById('modal-cancel-btn');
+
+        // Fungsi untuk menampilkan modal dengan pesan dan konfigurasi tombol kustom
+        function showCustomModal(message, isConfirmation = false, confirmText = 'Oke', cancelText = 'Batal', confirmAction = null) {
+            if (!customModal || !modalMessageP || !modalConfirmBtn || !modalCancelBtn) {
+                console.error("Modal elements not found!");
+                return;
+            }
+
+            modalMessageP.textContent = message;
+            modalConfirmBtn.textContent = confirmText;
+
+            modalConfirmBtn.onclick = null;
+            modalCancelBtn.onclick = null;
+
+            if (isConfirmation) {
+                modalCancelBtn.textContent = cancelText;
+                modalCancelBtn.classList.remove('hidden');
+                
+                modalConfirmBtn.onclick = () => {
+                    if (confirmAction) {
+                        confirmAction();
+                    }
+                    customModal.classList.add('hidden');
+                };
+                modalCancelBtn.onclick = () => {
+                    customModal.classList.add('hidden');
+                };
+            } else {
+                modalCancelBtn.classList.add('hidden');
+                modalConfirmBtn.onclick = () => {
+                    customModal.classList.add('hidden');
+                };
+            }
+            customModal.classList.remove('hidden');
+        }
+
+        // --- Logika Form Pemesanan dan Nota ---
+        const bookingModal = document.getElementById('booking-modal');
+        const closeBookingModalBtn = document.getElementById('close-booking-modal');
+        const bookingForm = document.getElementById('booking-form');
+        const bookNowButtons = document.querySelectorAll('.book-now-btn');
+        const bookingPackageInput = document.getElementById('bookingPackage');
+        const bookingPriceInput = document.getElementById('bookingPrice');
+        const totalPriceDisplay = document.getElementById('total-price-display');
+
+        const invoiceModal = document.getElementById('invoice-modal');
+        const closeInvoiceModalBtn = document.getElementById('close-invoice-modal');
+        const invoiceBookingCode = document.getElementById('invoice-booking-code');
+        const invoiceName = document.getElementById('invoice-name');
+        const invoiceEmail = document.getElementById('invoice-email');
+        const invoicePhone = document.getElementById('invoice-phone');
+        const invoiceAddress = document.getElementById('invoice-address');
+        const invoiceCity = document.getElementById('invoice-city');
+        const invoicePostalCode = document.getElementById('invoice-postal-code');
+        const invoicePackage = document.getElementById('invoice-package');
+        const invoiceDate = document.getElementById('invoice-date');
+        const invoiceEventDetails = document.getElementById('invoice-event-details');
+        const invoiceTotalPrice = document.getElementById('invoice-total-price');
+        const printInvoiceBtn = document.getElementById('print-invoice-btn');
+        const saveInvoiceBtn = document.getElementById('save-invoice-btn');
+
+        // Event listener untuk tombol "Pesan Sekarang"
+        bookNowButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const packageName = button.dataset.packageName;
+                const packagePrice = parseFloat(button.dataset.packagePrice);
+
+                bookingPackageInput.value = packageName;
+                bookingPriceInput.value = packagePrice;
+                totalPriceDisplay.textContent = formatRupiah(packagePrice);
+                bookingModal.classList.remove('hidden');
+            });
+        });
+
+        // Event listener untuk menutup modal pemesanan
+        closeBookingModalBtn.addEventListener('click', () => {
+            bookingModal.classList.add('hidden');
+            bookingForm.reset(); // Reset form saat ditutup
+        });
+
+        // Event listener untuk submit form pemesanan
+        bookingForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            // Check if Firebase is ready before attempting submission
+            if (!isFirebaseReady || !userId) {
+                showCustomModal("Sistem belum siap. Mohon tunggu sebentar atau refresh halaman.", false);
+                return;
+            }
+
+            const bookingData = {
+                fullName: document.getElementById('bookingName').value,
+                email: document.getElementById('bookingEmail').value,
+                phoneNumber: document.getElementById('bookingPhone').value,
+                address: document.getElementById('bookingAddress').value,
+                city: document.getElementById('bookingCity').value,
+                postalCode: document.getElementById('bookingPostalCode').value,
+                packageName: bookingPackageInput.value,
+                packagePrice: parseFloat(bookingPriceInput.value),
+                bookingDate: document.getElementById('bookingDate').value,
+                eventDetails: document.getElementById('eventDetails').value,
+                bookingCode: generateBookingCode(),
+                timestamp: new Date()
+            };
+
+            try {
+                // Simpan data ke Firestore
+                const docRef = await addDoc(collection(db, `artifacts/${appId}/users/${userId}/bookings`), bookingData);
+                console.log("Document written with ID: ", docRef.id);
+
+                // Tampilkan nota
+                displayInvoice(bookingData);
+                bookingModal.classList.add('hidden'); // Sembunyikan form pemesanan
+                invoiceModal.classList.remove('hidden'); // Tampilkan modal nota
+
+                showCustomModal("Pemesanan Anda berhasil! Silakan lihat nota Anda.", false);
+                bookingForm.reset(); // Reset form setelah berhasil submit
+            } catch (e) {
+                console.error("Error adding document: ", e);
+                showCustomModal("Terjadi kesalahan saat menyimpan pemesanan Anda. Mohon coba lagi.", false);
+            }
+        });
+
+        // Fungsi untuk generate kode booking unik
+        function generateBookingCode() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let result = '';
+            for (let i = 0; i < 8; i++) {
+                result += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return `NY-${result}`; // Nikah Yuk! - [random_code]
+        }
+
+        // Fungsi untuk menampilkan nota
+        function displayInvoice(data) {
+            invoiceBookingCode.textContent = data.bookingCode;
+            invoiceName.textContent = data.fullName;
+            invoiceEmail.textContent = data.email;
+            invoicePhone.textContent = data.phoneNumber;
+            invoiceAddress.textContent = data.address;
+            invoiceCity.textContent = data.city;
+            invoicePostalCode.textContent = data.postalCode;
+            invoicePackage.textContent = data.packageName;
+            invoiceDate.textContent = new Date(data.bookingDate).toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' });
+            invoiceEventDetails.textContent = data.eventDetails || '-'; // Tampilkan '-' jika kosong
+            invoiceTotalPrice.textContent = formatRupiah(data.packagePrice);
+        }
+
+        // Fungsi format Rupiah
+        function formatRupiah(angka) {
+            let reverse = angka.toString().split('').reverse().join('');
+            let ribuan = reverse.match(/\d{1,3}/g);
+            let result = ribuan.join('.').split('').reverse().join('');
+            return 'Rp ' + result;
+        }
+
+        // Event listener untuk menutup modal nota
+        closeInvoiceModalBtn.addEventListener('click', () => {
+            invoiceModal.classList.add('hidden');
+        });
+
+        // Event listener untuk tombol cetak nota
+        printInvoiceBtn.addEventListener('click', () => {
+            const printContent = document.getElementById('invoice-content').innerHTML;
+            const originalBody = document.body.innerHTML;
+            document.body.innerHTML = printContent;
+            window.print();
+            document.body.innerHTML = originalBody; // Mengembalikan konten body asli
+            // Perlu reload atau cara lain untuk mengembalikan event listener jika ada
+            location.reload(); // Cara sederhana untuk mengembalikan semua event listener
+        });
+
+        // Event listener untuk tombol simpan nota (sebagai file teks sederhana)
+        saveInvoiceBtn.addEventListener('click', () => {
+            const bookingCode = invoiceBookingCode.textContent;
+            const invoiceText = `
+Nota Pemesanan Nikah Yuk!
+
+Kode Booking: ${invoiceBookingCode.textContent}
+Nama Pelanggan: ${invoiceName.textContent}
+Email: ${invoiceEmail.textContent}
+Nomor Telepon: ${invoicePhone.textContent}
+Alamat: ${invoiceAddress.textContent}
+Kota: ${invoiceCity.textContent}
+Kode Pos: ${invoicePostalCode.textContent}
+Paket Dipilih: ${invoicePackage.textContent}
+Tanggal Pernikahan: ${invoiceDate.textContent}
+Detail Acara Tambahan: ${invoiceEventDetails.textContent}
+
+Total Harga: ${invoiceTotalPrice.textContent}
+
+Terima kasih telah mempercayakan hari spesial Anda kepada Nikah Yuk!. Kami akan segera menghubungi Anda untuk konfirmasi lebih lanjut.
+            `;
+            const blob = new Blob([invoiceText], { type: 'text/plain;charset=utf-8' });
+            const filename = `Nota_Pemesanan_${bookingCode}.txt`;
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(a.href);
+        });
+
+    </script>
+</body>
+</html>

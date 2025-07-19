@@ -1,0 +1,496 @@
+/* Gaya dasar untuk body, konsisten di seluruh halaman */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #000000; /* Latar belakang hitam */
+    color: #ffffff; /* Teks putih */
+    margin: 0; /* Pastikan tidak ada margin default */
+    line-height: 1.6; /* Menambahkan line-height untuk keterbacaan */
+}
+
+/* Font elegan untuk judul-judul utama */
+.font-elegant {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+/* Header Styling */
+header {
+    background-color: #000;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    position: sticky; /* Pastikan header tetap di atas */
+    top: 0;
+    z-index: 9900; /* Tingkatkan z-index agar selalu di atas sebagian besar konten */
+}
+
+/* Gaya untuk tautan header agar selalu putih */
+.header-link {
+    color: #ffffff;
+    text-decoration: none; /* Menambahkan ini untuk menghilangkan garis bawah default */
+}
+
+.header-link:hover {
+    color: #cccccc; /* Warna sedikit lebih terang saat hover */
+}
+
+/* Gaya untuk dropdown */
+.dropdown-content {
+    z-index: 9901; /* Pastikan dropdown di atas header dan konten lainnya */
+    /* Untuk mengatasi dropdown yang menghilang terlalu cepat:
+        Menambahkan sedikit padding-top dan margin-top negatif untuk memperluas area hover
+        tanpa mengubah posisi visual secara signifikan. */
+    padding-top: 5px; /* Sedikit padding di atas untuk memperluas area hover */
+    margin-top: -5px; /* Kompensasi padding agar posisi visual tetap sama */
+}
+/* Pastikan item di dalam dropdown juga memiliki area klik yang cukup */
+.dropdown-content a {
+    padding: 8px 16px; /* Menambah padding untuk area klik yang lebih besar */
+    display: block; /* Pastikan link mengisi seluruh area item dropdown */
+}
+
+/* Keyframes untuk animasi slide dari kiri */
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Keyframes untuk animasi slide dari kanan */
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* BARU: Keyframes untuk animasi slide keluar ke KANAN (untuk elemen yang masuk dari KIRI) */
+@keyframes slideOutToRight {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100px); /* Keluar ke kanan */
+    }
+}
+
+/* BARU: Keyframes untuk animasi slide keluar ke KIRI (untuk elemen yang masuk dari KANAN) */
+@keyframes slideOutToLeft {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-100px); /* Keluar ke kiri */
+    }
+}
+
+/* Kelas untuk menerapkan animasi slide */
+/* Catatan: Kelas ini harus sesuai dengan yang dipicu oleh JavaScript */
+.slide-in-from-left-animation { /* Nama kelas diperbarui agar konsisten dengan JS */
+    animation: slideInFromLeft 1s ease-out forwards;
+}
+
+.slide-in-from-right-animation { /* Nama kelas diperbarui agar konsisten dengan JS */
+    animation: slideInFromRight 1s ease-out forwards;
+}
+
+/* BARU: Kelas untuk menerapkan animasi slide OUT (sesuai arah berlawanan dari masuk) */
+/* Digunakan untuk elemen yang masuk dari KIRI, keluar ke KANAN */
+.slide-out-to-right-animation {
+    animation: slideOutToRight 1s ease-in forwards;
+}
+
+/* Digunakan untuk elemen yang masuk dari KANAN, keluar ke KIRI */
+.slide-out-to-left-animation {
+    animation: slideOutToLeft 1s ease-in forwards;
+}
+
+/* BARU: Kelas untuk status awal tersembunyi untuk elemen yang akan di-animasi masuk */
+/* Ini akan diterapkan di HTML pada elemen .description-image dan .description-text */
+.element-initial-hidden-left {
+    opacity: 0;
+    transform: translateX(-100px);
+}
+.element-initial-hidden-right {
+    opacity: 0;
+    transform: translateX(100px);
+}
+
+/* Gaya untuk pseudo-element pada h2 di deskripsi layanan */
+/* Pastikan parent dari h2 memiliki position: relative agar 'right' dan 'bottom' bekerja dengan benar */
+.description-text h2::after {
+    content: "”";
+    font-size: 4em;
+    color: #e5d5c1; /* Warna yang cocok dengan tema */
+    position: absolute;
+    right: 0;
+    bottom: -60px;
+    line-height: 1;
+}
+
+/* Pastikan container menyembunyikan elemen sebelum animasi */
+.description-item {
+    overflow: hidden;
+    /* Tambahan untuk tampilan seperti screenshot */
+    background-color: rgba(222, 221, 221, 0.54); /* #dedddd8a */
+    margin-bottom: 80px;
+    /* Pastikan elemen ini memiliki z-index yang lebih rendah dari header/dropdown */
+    position: relative; /* Diperlukan agar z-index bekerja */
+    z-index: 1; /* Nilai z-index rendah */
+}
+
+/* Gaya untuk bagian deskripsi layanan agar sesuai screenshot */
+.service-description-section {
+    max-width: 1000px;
+    margin: 100px auto;
+    padding: 0 20px;
+}
+
+.description-image {
+    flex: 1;
+    padding: 20px;
+}
+
+.description-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.description-text {
+    flex: 2;
+    padding: 20px;
+    line-height: 2;
+}
+
+.description-text p {
+    font-family: 'Inter', sans-serif; /* Menggunakan Inter untuk paragraf */
+    color: #333; /* Teks gelap untuk latar belakang terang */
+}
+
+.description-text h2 {
+    display: block;
+    font-size: 2em; /* Ukuran font dari kode sebelumnya */
+    font-weight: 700;
+    color: #a07d4b; /* Warna dari kode sebelumnya */
+    font-family: 'Cormorant Garamond', serif; /* Menggunakan Cormorant Garamond */
+    margin-top: 40px;
+    line-height: 1.3;
+    text-align: right;
+    position: relative; /* Penting untuk pseudo-element ::after */
+}
+
+/* Gaya untuk galeri */
+.gallery-section {
+    position: relative;
+    padding: 60px 0; /* Padding dari kode sebelumnya */
+    color: white; /* Teks putih */
+    text-align: center; /* Pusatkan konten teks */
+}
+
+.gallery-section .background-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(50%); /* Kecerahan dari kode sebelumnya */
+    z-index: -1;
+}
+
+.gallery-section h2 {
+    text-align: center;
+    font-size: 3em;
+    margin-bottom: 50px;
+    color: white;
+    position: relative; /* Untuk memastikan z-index bekerja */
+    z-index: 1;
+    font-family: 'Cormorant Garamond', serif; /* Sesuaikan font */
+}
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+    position: relative; /* Untuk memastikan z-index bekerja */
+    z-index: 1;
+}
+.gallery-container img {
+    width: 300px;
+    height: 450px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    /* Pastikan header juga responsif */
+    header {
+        flex-direction: column;
+        padding: 15px 20px;
+    }
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-top: 15px;
+    }
+    .hero-section h1 {
+        font-size: 2.5em;
+    }
+    /* Sesuaikan tampilan description-item untuk mobile */
+    .description-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    .description-image, .description-text {
+        padding: 15px;
+    }
+    .description-text h2 {
+        text-align: center;
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+    .description-text h2::after {
+        position: static; /* Nonaktifkan posisi absolut pada mobile jika mengganggu */
+        display: block;
+        margin-top: 10px;
+        font-size: 2.5em;
+    }
+    /* Sesuaikan galeri untuk mobile */
+    .gallery-container img {
+        width: 100%;
+        max-width: 300px; /* Batasi ukuran agar tidak terlalu besar */
+        height: auto;
+    }
+    .gallery-section h2 {
+        font-size: 2.5em;
+    }
+
+    /* CSS Tambahan untuk Halaman Kontak */
+
+    /* Hero Section */
+    .hero-contact-section {
+        height: 50vh; /* Sedikit lebih pendek di mobile */
+        min-height: 300px;
+    }
+
+    .hero-contact-section h1 {
+        font-size: 3.5em; /* Ukuran font lebih kecil di mobile */
+    }
+
+    /* Main Content (Map and Form) */
+    .contact-main-content {
+        grid-template-columns: 1fr; /* Satu kolom di mobile */
+        padding: 0 1rem; /* Padding horizontal */
+        margin-bottom: 3rem;
+    }
+
+    .map-container, .consultation-form-container {
+        padding: 1.5rem; /* Padding lebih kecil */
+    }
+
+    .map-container iframe {
+        height: 250px; /* Tinggi iframe lebih kecil di mobile */
+    }
+
+    .consultation-form-container h2 {
+        font-size: 2.5em; /* Ukuran font lebih kecil */
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr; /* Satu kolom untuk input di mobile */
+        gap: 1rem; /* Jarak antar input */
+    }
+
+    .form-button button {
+        width: 100%; /* Tombol mengisi lebar penuh */
+        padding: 0.8rem 1.5rem;
+    }
+
+    /* Social Contact Section */
+    .social-contact-section {
+        padding: 2rem;
+    }
+
+    .social-contact-section h2 {
+        font-size: 2.5em;
+        margin-bottom: 2rem;
+    }
+
+    .social-links-grid {
+        gap: 2rem; /* Jarak antar ikon sosial */
+    }
+
+    .social-link i {
+        font-size: 3.5em; /* Ukuran ikon lebih kecil */
+    }
+
+    .social-link span {
+        font-size: 1em; /* Ukuran teks lebih kecil */
+    }
+
+    /* CSS Tambahan untuk Halaman Galeri */
+    .hero-gallery-section {
+        height: 50vh;
+        min-height: 300px;
+    }
+
+    .hero-gallery-section h1 {
+        font-size: 3.5em;
+    }
+
+    .gallery-filter-btn {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.9em;
+    }
+
+    .gallery-item img {
+        height: 200px; /* Tinggi gambar lebih kecil di mobile */
+    }
+
+    .video-item .relative {
+        padding-top: 75%; /* Sesuaikan rasio aspek untuk mobile jika perlu */
+    }
+
+    /* CSS Tambahan untuk Halaman Pricelist */
+    .hero-pricelist-section {
+        height: 50vh;
+        min-height: 300px;
+    }
+
+    .hero-pricelist-section h1 {
+        font-size: 3.5em;
+    }
+
+    .price-card {
+        padding: 1.5rem;
+    }
+
+    .price-card h3 {
+        font-size: 2.5em;
+    }
+
+    .price-card p.text-5xl {
+        font-size: 3.5em;
+    }
+
+    .price-card ul {
+        margin-bottom: 1.5rem;
+    }
+
+    .book-now-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9em;
+    }
+
+    /* Modal Form Pemesanan dan Nota */
+    #booking-modal .bg-gray-800, #invoice-modal .bg-white {
+        padding: 1.5rem;
+    }
+    #booking-modal h2, #invoice-modal h2 {
+        font-size: 2.5em;
+    }
+    #booking-modal label, #invoice-modal p {
+        font-size: 0.9em;
+    }
+    #booking-modal input, #booking-modal textarea {
+        padding: 0.6rem;
+    }
+    #booking-modal button[type="submit"] {
+        padding: 0.8rem 1.5rem;
+    }
+    #invoice-content p {
+        font-size: 0.9em;
+    }
+    #invoice-content .text-2xl {
+        font-size: 1.5em;
+    }
+    #print-invoice-btn, #save-invoice-btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9em;
+    }
+}
+
+/* CSS Tambahan untuk Halaman Pricelist */
+
+/* Hero Section Khusus Pricelist */
+.hero-pricelist-section {
+    background-color: #333; /* Fallback color */
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-pricelist-section img {
+    filter: brightness(75%);
+}
+
+.hero-pricelist-section h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+/* Kartu Harga */
+.price-card {
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+}
+
+.price-card:hover {
+    border-color: #e5d5c1;
+}
+
+.price-card ul li i {
+    color: #e5d5c1; /* Warna ikon checklist */
+}
+
+/* Warna khusus untuk tombol dan elemen utama */
+.bg-e5d5c1 {
+    background-color: #e5d5c1;
+}
+
+.text-e5d5c1 {
+    color: #e5d5c1;
+}
+
+.hover\:bg-d4c4b0:hover {
+    background-color: #d4c4b0;
+}
+
+/* Modal Styling */
+#booking-modal, #invoice-modal {
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#booking-modal .bg-gray-800, #invoice-modal .bg-white {
+    animation: fadeInScale 0.3s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
